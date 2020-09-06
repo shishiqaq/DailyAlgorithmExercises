@@ -5,8 +5,8 @@ public class Sort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] array = {4,2,5,6,22,8,3,0};
-		bubbleSort(array);
-//		insertion(array);
+//		bubbleSort(array);
+		insertion(array);
 //		selection(array);
 		for(int a : array)
 			System.out.print(a + ",");
@@ -31,13 +31,12 @@ public class Sort {
 	public static void insertion(int[] arr) {
 		
 		for(int i = 1; i < arr.length; i++) {
-			if(arr[i] < arr[i-1]) {
-				int temp = arr[i], j = i;
-				for(j = i; arr[j-1] < temp; j--) {
-				arr[j] = arr[j-1];
-				}
-			arr[j] = temp;
+			int value = arr[i], index = i;
+			while(index > 0 && value < arr[index-1]) {
+				arr[index] = arr[index-1];
+				index--;
 			}
+			arr[index] = value;
 		}
 	}
 	
