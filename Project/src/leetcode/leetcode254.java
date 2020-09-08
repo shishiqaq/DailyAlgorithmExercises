@@ -2,7 +2,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class leetcode254 {
+public class Leetcode254 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
