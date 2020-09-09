@@ -8,7 +8,8 @@ public class Sort {
 //		bubbleSort(array);
 //		insertion(array);
 //		selection(array);
-		mergeSort(array);
+//		mergeSort(array);
+		quickSort(array, 0, array.length-1);
 		for(int a : array)
 			System.out.print(a + ",");
 	}
@@ -57,6 +58,7 @@ public class Sort {
 	}
 	
 	//O(nlogn)
+	//use extra memory
 	public static void merge(int[] left, int[] right, int[] arr) {
 		int i = 0, j = 0, k = 0;
 		int nl = left.length, nr = right.length;
@@ -100,4 +102,33 @@ public class Sort {
 		mergeSort(right);
 		merge(left, right, arr);
 	}
+	
+	//use the last element as pivot
+	//best efficiency: use the median of left, mid, right
+	public static int partition(int[] arr, int start, int end) {
+		int pivot = arr[end], index = start;
+		for(int i = start; i < end; i++) {
+			if(arr[i] <= pivot) {
+				int temp = arr[i];
+				arr[i] = arr[index];
+				arr[index] = temp;
+				index++;
+			}
+		}
+		int temp = arr[index];
+		arr[index] = arr[end];
+		arr[end] = temp;
+		
+		return index;
+	}
+	//O(nlogn)
+	public static void quickSort(int[] arr, int start, int end) {
+		if(start >= end)
+			return;
+	
+		int index = partition(arr, start, end);
+		quickSort(arr, start, index-1);
+		quickSort(arr, index + 1, end);
+	}
+	
 }
