@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.List;
+
 public class Leetcode120 {
 	public int minimumTotal(List<List<Integer>> triangle) {
         Integer[][] dp = new Integer[triangle.size()][triangle.size()];
